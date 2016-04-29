@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest
+-------------------------------------------------------------------------------
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.672 sec - in muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest

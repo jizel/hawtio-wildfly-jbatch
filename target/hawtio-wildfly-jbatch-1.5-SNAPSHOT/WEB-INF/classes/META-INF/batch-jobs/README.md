@@ -1,0 +1,1 @@
+Keep this file here if no batch jobs are specified in order not to ignore this folder by packaging tools.

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="9.672" tests="29" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="c:\Program Files\Java\jdk1.8.0_45\jre\bin"/>
+    <property name="java.vm.version" value="25.45-b02"/>
+    <property name="user.country.format" value="CZ"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="c:\Users\jzelezny\Documents\NetBeansProjects\hawtio\hawtio-wildfly-jbatch"/>
+    <property name="java.runtime.version" value="1.8.0_45-b15"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="c:\Program Files\Java\jdk1.8.0_45\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\jzelezny\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="C:\Program Files\Apache Software Foundation\apache-maven-3.2.5\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="c:\Program Files\Java\jdk1.8.0_45\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Apache Software Foundation\apache-maven-3.2.5\bin;C:\Program Files (x86)\OpenSSH\bin;C:\WINDOWS\system32;C:\Program Files\Git\cmd;C:\Program Files (x86)\Skype\Phone\;c:\Chromedriver\;C:\Program Files\nodejs\;c:\apache-maven-3.3.9\;c:\Python27\;c:\Program Files\Java\jdk1.8.0_45\\bin;c:\Ruby200-x64\bin\;c:\Chromedriver\;C:\Users\jzelezny\AppData\Roaming\npm;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\jzelezny"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="jzelezny"/>
+    <property name="java.class.path" value="C:\Program Files\Apache Software Foundation\apache-maven-3.2.5\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="c:\Program Files\Java\jdk1.8.0_45\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="user.language.format" value="cs"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_45"/>
+    <property name="java.ext.dirs" value="c:\Program Files\Java\jdk1.8.0_45\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="c:\Program Files\Java\jdk1.8.0_45\jre\lib\resources.jar;c:\Program Files\Java\jdk1.8.0_45\jre\lib\rt.jar;c:\Program Files\Java\jdk1.8.0_45\jre\lib\sunrsasign.jar;c:\Program Files\Java\jdk1.8.0_45\jre\lib\jsse.jar;c:\Program Files\Java\jdk1.8.0_45\jre\lib\jce.jar;c:\Program Files\Java\jdk1.8.0_45\jre\lib\charsets.jar;c:\Program Files\Java\jdk1.8.0_45\jre\lib\jfr.jar;c:\Program Files\Java\jdk1.8.0_45\jre\classes"/>
+    <property name="sun.stderr.encoding" value="cp437"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\Apache Software Foundation\apache-maven-3.2.5"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.stdout.encoding" value="cp437"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="testGetJobInstancesNullJob" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.255"/>
+  <testcase name="testStopNegativeExucitonId" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.038"/>
+  <testcase name="testGetStepExucitonNegative" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.033"/>
+  <testcase name="testRestartExucitonIdZero" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.029"/>
+  <testcase name="testSubmitInvalidJobName" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.053"/>
+  <testcase name="testGetJobInstancesInvalidJob" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.06"/>
+  <testcase name="testSubmitNullJob" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.02"/>
+  <testcase name="testGetJobInstanceCountNullJob" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.025"/>
+  <testcase name="testGetInstanceCountInvalidJob" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.027"/>
+  <testcase name="testGetJobExecutionsNullJob" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.02"/>
+  <testcase name="testRestartInvalidId" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.029"/>
+  <testcase name="testGetExecutionInvalidId" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.026"/>
+  <testcase name="testGetExecutionExucitonIdZero" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.019"/>
+  <testcase name="testGetStepExucitonInvalidId" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.026"/>
+  <testcase name="testStopInvalidId" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.023"/>
+  <testcase name="testSubmitJob" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.066"/>
+  <testcase name="testGetJobExecution" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.015"/>
+  <testcase name="testRestartJob" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.019"/>
+  <testcase name="testAbandon" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.016"/>
+  <testcase name="testGetStepExecutions" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.016"/>
+  <testcase name="testGetJobInstances_String" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.014"/>
+  <testcase name="testGetJobInstanceCount" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.015"/>
+  <testcase name="testGetJobNames" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.014"/>
+  <testcase name="testGetJobInstance" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.014"/>
+  <testcase name="testGetJobExecutions" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.017"/>
+  <testcase name="testGetJobInstances_3args" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.018"/>
+  <testcase name="testGetRunningExecutions" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.014"/>
+  <testcase name="testGetParameters" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.013"/>
+  <testcase name="testStop" classname="muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBeanTest" time="0.015"/>
+</testsuite>

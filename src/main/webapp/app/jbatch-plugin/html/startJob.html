@@ -1,0 +1,42 @@
+<div class="simple-controller" ng-controller="JBatch.BatchJobController">
+     
+  <ul class="nav nav-tabs" ng-controller="Core.NavBarController"> 
+        <li ng-class='{active : isActive("#/jbatch_plugin/startJob")}'>
+            <a ng-href="{{link('#/jbatch_plugin/startJob')}}">Start a new Job</a>
+        </li>
+        <li ng-class='{active : isActive("#/jbatch_plugin/jobs")}'>
+            <a ng-href="{{link('#/jbatch_plugin/jobs')}}">Jobs on Server</a>
+        </li>
+    </ul>
+
+    <table class="row depl">
+        <thead>
+            <tr>
+                <th>Deployments with <i>batch-jberet</i> subsystem</th>
+                <th>Jobs Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="(name,jobs) in batchDeployments">
+                <td>{{name}}</td>
+                <td >  
+                    
+                    <ul ng-repeat="(i,jobname) in jobs">                        
+                            <li ng-href="" ng-click="setJob2run(name, jobname)">{{jobname}} </li>                        
+                    </ul>                                                                    
+                </td>
+            </tr>             
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <div class="row">                               
+        <input class="row" type="text" ng-model="run_job"/>                
+        <input class="row" type="text" ng-model="properties"/>        
+        <button ng-click="startJobCli(selected_depl, run_job,properties)">Run Job</button>        
+        <p class="row"><b>Be careful</b> - the job name from deployments table does not have to match the xml name of the job which is needed to run it. Check your job xml names!</p>
+    </div>
+
+</div>

@@ -1,0 +1,104 @@
+
+<div class="simple-controller" ng-controller="JBatch.BatchJobController">
+     <ul class="nav nav-tabs" ng-controller="Core.NavBarController"> 
+        <li ng-class='{active : isActive("#/jbatch_plugin/startJob")}'>
+            <a ng-href="{{link('#/jbatch_plugin/startJob')}}">Start a new Job</a>
+        </li>
+        <li ng-class='{active : isActive("#/jbatch_plugin/jobs")}'>
+            <a ng-href="{{link('#/jbatch_plugin/jobs')}}">Jobs on Server</a>
+        </li>
+    </ul>
+
+
+    <div class="row-fluid">
+                        
+        <table class="jobs">
+            <thead>
+                <tr>
+                    <th>Job Name</th>
+                    <th>#Instances</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="(jobname,count) in jobCounts track by $index" ng-class="{activeJob: jobname === selected_jobname}">
+                    <td ng-click="setSelectedInstances(jobname)">{{jobname}}</td>
+                    <td class="int">{{count}}</td>                    
+                </tr>               
+            </tbody>
+        </table>            
+
+        <table class="jobs" >
+            <thead>
+                <tr>
+                    <th>Job Instance ID</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="instance in selected_instances|orderBy: '-jobInstanceId'" ng-click="setSelectedExecutions(instance.jobInstanceId)" ng-class="{activeJob: instance.jobInstanceId === selected_instance_id}" >
+                    <td class="int">ID: {{instance.jobInstanceId}}</td>                    
+                </tr>
+            </tbody>                
+        </table>   
+        
+        <table class="jobs" ng-table="executionsTable" ng-model="executionsTable">
+            <thead>
+                <tr>
+                    <th>Job Execution ID</th>               
+                    <th>Batch Status</th>
+                    <th>Exit Status</th>
+                    <th>Parameters</th>
+                    <th>Action</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="execution in selected_executions|orderBy: '-jobExecutionId'" ng-click="setSelectedSteps(execution.jobExecutionId)" ng-class="{activeJob: execution.jobExecutionId === selected_execution_id}" >
+                    <td>{{execution.jobExecutionId}}</td>
+                    <td>{{execution.batchStatus}}</td>
+                    <td>{{execution.exitStatus}}</td>
+                    <td>{{execution.jobParameters}}</td>
+                    <td>
+                        <select ng-name="actionSelect"  ng-model="selectedAction" ng-change="actionCalledOnExec(execution.jobExecutionId, selectedAction)"> 
+                            <option ng-option="restart" value="restart" ng-if="selected_executions[selected_executions.length-1].jobExecutionId == execution.jobExecutionId">restart</option>
+                            <option ng-repeat="action in actions">{{action}}</option>                           
+                        </select>
+                    </td>                    
+                </tr>              
+            </tbody>                
+        </table>  
+        
+        <br><br><br><br><br><br>
+        <h4>Steps for job execution ID: {{selected_execution_id}}</h4>
+        <table class="jobs steps" >
+            <thead>
+                <tr>
+                   <th>Step&nbsp;Name</th>
+                    <th>Batch&nbsp;status</th>
+                    <th>Exit&nbsp;Status</th>
+                    <th>Start&nbsp;Time</th>
+                    <th>End&nbsp;Time</th>
+                    <th>ReadCount</th>
+                    <th>ReadSkipCount</th>
+                    <th>WriteSkipCount</th>
+                    <th>CommitCount</th>
+                    <th>WriteCount</th>
+                    <th>FilterCount</th>
+                    <th>RollbackCount</th>
+                    <th>ProcessSkipCount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="step in selected_steps">                    
+                    <td>{{step.stepName}}</td>
+                    <td>{{step.batchStatus}}</td>
+                    <td>{{step.exitStatus}}</td>
+                    <td class="int">{{step.startTime}}</td>
+                    <td class="int">{{step.endTime}}</td>
+                    <td ng-repeat="metric in step.metrics" class="metric">
+                        <!--{{metric.type}}&nbsp;=&nbsp;{{metric.value}}-->
+                        {{metric.value}}
+                    </td>
+                </tr>              
+            </tbody>                
+        </table>     
+    </div>        
+</div>

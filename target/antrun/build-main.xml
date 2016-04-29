@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>Building plugin javascript file list</echo>
+  <fileset id="javascript-files" dir="c:\Users\jzelezny\Documents\NetBeansProjects\hawtio\hawtio-wildfly-jbatch/src/main/webapp">
+    <include name="**/*.js"/>
+  </fileset>
+  <pathconvert dirsep="/" property="plugin-scripts" pathsep="," refid="javascript-files">
+    <map from="c:\Users\jzelezny\Documents\NetBeansProjects\hawtio\hawtio-wildfly-jbatch/src/main/webapp/" to=""/>
+  </pathconvert>
+  <echo>Files: ${plugin-scripts}</echo>
+  <echo>Copying log4j.properties</echo>
+  <copy file="src/main/resources/log4j.properties" todir="target/classes"/>
+</target>
+</project>

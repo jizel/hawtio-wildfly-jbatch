@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job id="simple-batchlet-job" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    version="1.0">
+    <step id="batchlet-step" next="cleanup">
+        <batchlet ref="muni.fi.dp.jz.jbatch.job.MyFirstBatchlet"></batchlet>
+        <end on="SUCCESS" />
+    </step>
+</job>
