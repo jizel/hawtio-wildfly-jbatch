@@ -18,6 +18,11 @@
         <filter-name>AuthFilter</filter-name>
         <url-pattern>/jbatch-rest/*</url-pattern>         
     </filter-mapping>
+    
+    <context-param>
+        <param-name>resteasy.providers</param-name>
+        <param-value>muni.fi.dp.jz.jbatch.exception.EJBAccessExceptionMapper</param-value>
+    </context-param>
 
     <!--Hawt.io-->
     <context-param>

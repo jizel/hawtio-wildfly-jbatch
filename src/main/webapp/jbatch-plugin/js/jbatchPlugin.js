@@ -199,9 +199,6 @@ var JBatch = (function (JBatch) {
 
         $scope.getBatchDeployments = function () {
             $http.get("http://localhost:8080/hawtio/jbatch-rest/cli/batchDepl/", {
-//                headers: {'Authorization': 'Basic'}
-//                headers: [{'Auth-Token': document.cookie}]               
-//                  headers: {'Cookie' : document.cookie.split(";")[0]},
                   withCredentials: true  
             }).then(function (resp) {
                 $scope.batchDeployments = resp.data;
@@ -256,14 +253,18 @@ var JBatch = (function (JBatch) {
             var propertiesStr = new String(properties);
             if (propertiesStr == "undefined" || propertiesStr.length == 0) {
                 $http.get("http://localhost:8080/hawtio/jbatch-rest/cli/start/" + deploymentName + "/" + jobName, {
-//                   headers: {'Authorization': 'Basic ' + document.cookie}
-                    headers: {'Auth-Token': document.cookie}                    
+                    withCredentials: true  
+//                    headers: {'Auth-Token': document.cookie}                    
                 }).then(function (resp) {
                     var jsonResp = resp.data;
 //                    $scope.logAndToastSuccess("token: " + document.cookie);
                     if (jsonResp.outcome.toString() === "failed") {
-                        JBatch.log.error("Job " + jobName + " start failed. Failure description: " + jsonResp['failure-description']);
-                    } else {
+                        JBatch.log.error("Job " + jobName + " start failed. Failure description: " + jsonResp['failure-description']);                        
+                    } 
+                    if (jsonResp.outcome.toString() === "not-allowed") {
+                      JBatch.log.error("You are not allowed to do this!");                          
+                    }
+                    else {
 //                    JBatch.log.info("Job started: " + jobName + "with id: " + jsonResp.result);                        
                         $scope.logAndToastSuccess("Job started: " + jobName + " with id: " + jsonResp.result);
                         $scope.getJobCounts();

@@ -18,6 +18,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -61,6 +62,7 @@ public class AuthFilter implements Filter {
 //        LOG.info("Requested sessionId: " + httpRequest.getRequestedSessionId() + httpRequest.getSession(false));
 //        LOG.info("Is Requested sessionId from cookie? :-) : " + httpRequest.isRequestedSessionIdFromCookie());
 //        HttpServletResponse httpResponse = (HttpServletResponse) response;
+//        LOG.info("Respopnse: " + httpResponse.toString());
 //        addCorsHeader(httpResponse);        
 //        Collection<String> respHeaders= httpResponse.getHeaderNames();
 //        for(String s:respHeaders){            
