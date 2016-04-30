@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import javax.ejb.Stateless;
-import muni.fi.dp.jz.jbatch.webservice.JobResource;
 import org.apache.log4j.Logger;
 import org.jboss.as.cli.CliInitializationException;
 import org.jboss.as.cli.CommandContext;

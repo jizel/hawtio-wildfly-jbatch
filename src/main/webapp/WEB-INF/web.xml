@@ -9,6 +9,7 @@
     <display-name>hawtio</display-name>
   
     <!--Merge-->
+    <!--Filter for authenticating all rest requests-->
     <filter>
         <filter-name>AuthFilter</filter-name>
         <filter-class>muni.fi.dp.jz.jbatch.webservice.AuthFilter</filter-class>
@@ -17,12 +18,7 @@
         <filter-name>AuthFilter</filter-name>
         <url-pattern>/jbatch-rest/*</url-pattern>         
     </filter-mapping>
-    
-    <!--    <session-config>
-        <tracking-mode>COOKIE</tracking-mode>
-        <tracking-mode>URL</tracking-mode>     
-    </session-config>-->
-    
+
     <!--Hawt.io-->
     <context-param>
         <description>Plugin's path on the server</description>

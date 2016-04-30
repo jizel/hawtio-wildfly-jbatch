@@ -26,7 +26,6 @@ import javax.batch.runtime.JobInstance;
 import javax.batch.runtime.StepExecution;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import muni.fi.dp.jz.jbatch.batchapi.BatchExecutionBean;
 import muni.fi.dp.jz.jbatch.dtos.JobExecutionDto;
 import muni.fi.dp.jz.jbatch.dtos.JobInstanceDto;
