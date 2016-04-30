@@ -182,20 +182,20 @@ var JBatch = (function (JBatch) {
         });
 
         $scope.getJobCounts = function () {
-//            $http.post("http://localhost:8080/hawtio/jbatch-rest/jobs/counts", {
-////                withCredentials: true 
-//            }).then(function (resp) {
-//                $scope.jobCounts = resp.data;
-//            });
+            $http.post("http://localhost:8080/hawtio/jbatch-rest/jobs/counts", {
+//                withCredentials: true 
+            }).then(function (resp) {
+                $scope.jobCounts = resp.data;
+            });
             
 ////            Try it with not so simple XMLHttpRequest directly...
-            var url = 'http://http://localhost:8080/hawtio/jbatch-rest/jobs/counts';
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', url, true);
-            xhr.setRequestHeader(
-                'Cookie', document.cookie.split(";")[0]);
-            xhr.withCredentials = true;
-            xhr.send();
+//            var url = 'http://http://localhost:8080/hawtio/jbatch-rest/jobs/counts';
+//            var xhr = new XMLHttpRequest();
+//            xhr.open('POST', url, true);
+//            xhr.setRequestHeader(
+//                'Cookie', document.cookie.split(";")[0]);
+//            xhr.withCredentials = true;
+//            xhr.send();
 
 //                Try it with ajax...
 //                $.ajax({

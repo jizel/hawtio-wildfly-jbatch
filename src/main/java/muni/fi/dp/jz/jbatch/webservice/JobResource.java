@@ -77,7 +77,7 @@ public class JobResource {
     @GET    
     @Produces(MediaType.APPLICATION_JSON)
     @Path("names")
-//    @PermitAll
+    @PermitAll
     public Response getJobNames() {
         try {
 		List<String> jobNameList = new ArrayList<>(jobService.getJobNames());
@@ -91,7 +91,7 @@ public class JobResource {
     @GET    
     @Produces(MediaType.APPLICATION_JSON)
     @Path("jobexec/{execid}")
-//    @PermitAll
+    @PermitAll
     public Response getJobExecution(@PathParam("execid") Long executionId){
         if(executionId == null){
             return Response.serverError().entity("Execution id is empty").build();
@@ -108,7 +108,7 @@ public class JobResource {
     @GET    
     @Produces(MediaType.APPLICATION_JSON)
     @Path("count/{jobname}")
-//    @PermitAll
+    @PermitAll
     public Response getJobInstanceCount(@PathParam("jobname") String jobName){
          if(jobName == null){
             return Response.serverError().entity("Jobname is empty").build();
@@ -128,7 +128,7 @@ public class JobResource {
     @POST 
     @Produces(MediaType.APPLICATION_JSON)
     @Path("counts")
-//    @PermitAll
+    @PermitAll
     public Response getJobCounts() {
         try{
 		List<String> jobNameList = new ArrayList<>(jobService.getJobNames());
@@ -144,7 +144,7 @@ public class JobResource {
     @POST  
     @Produces(MediaType.APPLICATION_JSON)
     @Path("inst/{jobname}")
-//    @PermitAll
+    @PermitAll
     public Response getJobInstances(@PathParam("jobname") String jobName) {
         if(jobName == null){
             return Response.serverError().entity("Jobname is empty").build();

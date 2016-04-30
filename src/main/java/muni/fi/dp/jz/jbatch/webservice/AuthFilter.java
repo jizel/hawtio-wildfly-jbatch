@@ -34,7 +34,7 @@ import muni.fi.dp.jz.jbatch.hawtio.SessionWatcher;
 @WebFilter("/AuthFilter")
 public class AuthFilter implements Filter {
     
-//    private HttpSession session = null;
+    private HttpSession session = null;
 
     private static final Logger LOG = Logger.getLogger(AuthFilter.class.getName());
 //    private final AuthenticationConfiguration configuration = new AuthenticationConfiguration();
@@ -55,18 +55,18 @@ public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain fc) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;  
-        HttpSession session = httpRequest.getSession(false);
+        session = httpRequest.getSession(false);
         if (session == null) {
             LOG.info("Session null.... ");
         } else {
             LOG.info("Session not null yeeey! " + session.getId());
-//            session.invalidate();
-//            Subject subject = (Subject) session.getAttribute("subject");
-//            if (subject != null) {
-//                LOG.info("Session subject: " + subject);
-//                executeAs(request, response, fc, subject);
-//                return;
-//            }
+            Subject subject = (Subject) session.getAttribute("subject");
+            if (subject != null) {
+                LOG.info("Session subject: " + subject);
+                executeAs(request, response, fc, subject);                
+                return;
+            }
+            session.invalidate();
         }
         
         
@@ -128,7 +128,7 @@ public class AuthFilter implements Filter {
 
     @Override
     public void destroy() {
-//        session.invalidate();
+        session.invalidate();
     }
 
 //    Help
