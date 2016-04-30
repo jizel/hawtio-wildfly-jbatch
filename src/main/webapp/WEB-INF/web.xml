@@ -9,14 +9,15 @@
   <display-name>hawtio</display-name>
   
   <!--Merge-->
-  <filter>
+<!--  <filter>
         <filter-name>AuthFilter</filter-name>
         <filter-class>muni.fi.dp.jz.jbatch.webservice.AuthFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AuthFilter</filter-name>
         <url-pattern>/rest/*</url-pattern>         
-    </filter-mapping>
+    </filter-mapping>-->
+    
 <!--    <session-config>
         <tracking-mode>COOKIE</tracking-mode>
         <tracking-mode>URL</tracking-mode>     
@@ -27,7 +28,7 @@
         <description>Plugin's path on the server</description>
         <param-name>plugin-context</param-name>
         <!--<param-value>${plugin-context}</param-value>-->
-        <param-value>/jbatch-plugin</param-value>
+        <param-value>/hawtio</param-value>
     </context-param>
 
     <context-param>
@@ -45,11 +46,28 @@
 
     <context-param>
         <description>Plugin's path on the server</description>
-        <param-name>plugin-scripts</param-name>
-        <!--<param-value>${plugin-scripts}</param-value>-->
-        <param-value>../app/js/jbatchPlugin.js</param-value>
+        <param-name>plugin-scripts</param-name>        
+        <param-value>${plugin-scripts}</param-value>
     </context-param>
+    <!--Hawtio-->
+    
+<!--    <servlet>
+        <servlet-name>Resteasy</servlet-name>
+        <servlet-class>
+            org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+        </servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>muni.fi.dp.jz.jbatch.webservice.AppConfig</param-value>
+        </init-param>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>Resteasy</servlet-name>
+        <url-pattern>/jbatch-rest/*</url-pattern>
+    </servlet-mapping>-->
+
+    
     <listener>
         <listener-class>muni.fi.dp.jz.jbatch.hawtio.PluginContextListener</listener-class>        
     </listener>

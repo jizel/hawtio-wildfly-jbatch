@@ -27,7 +27,7 @@ import javax.ws.rs.core.Application;
  * @author jzelezny
  */
 @Stateless
-@ApplicationPath("/rest")
+@ApplicationPath("/jbatch-rest")
 public class AppConfig extends Application{
 
     @Override

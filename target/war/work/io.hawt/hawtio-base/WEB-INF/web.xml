@@ -120,6 +120,11 @@
       <param-name>mbeanQualifier</param-name>
       <param-value>qualifier=hawtio</param-value>
     </init-param>
+    <!-- turn off returning exceptions and stacktraces from jolokia -->
+    <init-param>
+      <param-name>allowErrorDetails</param-name>
+      <param-value>false</param-value>
+    </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
 
@@ -137,25 +142,6 @@
     <servlet-name>jolokia-proxy</servlet-name>
     <url-pattern>/proxy/*</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>kube-service</servlet-name>
-    <servlet-class>io.hawt.web.ServiceServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>kube-service</servlet-name>
-    <url-pattern>/service/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>kube-pod</servlet-name>
-    <servlet-class>io.hawt.web.PodServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>kube-pod</servlet-name>
-    <url-pattern>/pod/*</url-pattern>
-  </servlet-mapping>
-
 
   <servlet>
     <servlet-name>file-upload</servlet-name>

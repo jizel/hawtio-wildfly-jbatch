@@ -20,11 +20,11 @@
         as we build that dynamically using maven-antrun-plugin below. -->
         <!-- plugin-context is what context this plugin will handle requests on
         in the application server -->
-        <plugin-context>/jbatch-plugin</plugin-context>
+        <!--<plugin-context>/jbatch-plugin</plugin-context>-->
 
         <!-- plugin-name is the name of our plugin, affects the name used for
         the plugin's mbean -->
-        <plugin-name>jbatch-plugin</plugin-name>
+        <!--<plugin-name>jbatch-plugin</plugin-name>-->
 
         <!-- plugin-domain is currently unused, we just define it to an empty
         string -->
@@ -256,26 +256,32 @@
         
 
     <build>
+        
+        <finalName>hawtio-wildfly-jbatch</finalName>
+        
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>${war-plugin-version}</version>
+                <!--<version>${war-plugin-version}</version>-->
+                <version>2.6</version>
                 <configuration>
                     <packagingExcludes>**/lib/slf4j*.jar,**/lib/commons-logging-*.jar,**/classes/log4j.properties,**/lib/guava-*.jar,**/lib/maven-aether-provider-*.jar,**/lib/maven-model-*.jar,**/lib/maven-model-builder-*.jar,**/lib/maven-repository-metadata-*.jar,**/lib/netty-*.jar,**/lib/org.apache.aries.blueprint*.jar,**/lib/plexus-classworlds-*.jar,**/lib/plexus-component-annotations-*.jar,**/lib/plexus-interpolation-*.jar,**/lib/plexus-utils-*.jar,**/lib/wagon-ahc-*.jar,**/lib/wagon-provider-api-*.jar,**/lib/xbean-reflect-*.jar,**/lib/hawtio-git-*.jar</packagingExcludes>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     
                     <!--Merge-->
+                    <packagingExcludes>**/classes/OSGI-INF/**</packagingExcludes>
                     <outputFileNameMapping>@{artifactId}@-@{baseVersion}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>                    
                     <webResources>
                         <resource>
                             <filtering>true</filtering>
-                            <directory>src/main/resources</directory>
+                            <directory>src/main/webapp</directory>
                             <includes>
                                 <include>**/*.*</include>
                             </includes>
                         </resource>
                     </webResources>
+                    <!--/Merge-->
                 </configuration>
             </plugin>
 
@@ -364,7 +370,7 @@
                 <executions>
 
                     <execution>
-                        <!--                         we run this early in the build process before
+                        <!--we run this early in the build process before
                         maven-resources-plugin is run.  We're exporting the
                         plugin-scripts property from here, so we need to
                         use maven-antrun-plugin 1.6 or up -->
