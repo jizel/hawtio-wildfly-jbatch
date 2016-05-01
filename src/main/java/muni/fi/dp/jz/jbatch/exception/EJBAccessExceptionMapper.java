@@ -15,6 +15,8 @@
  */
 package muni.fi.dp.jz.jbatch.exception;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import javax.ejb.EJBAccessException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -26,9 +28,10 @@ import org.json.JSONObject;
  *
  * @author Zorz
  */
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 @Provider
 public class EJBAccessExceptionMapper implements ExceptionMapper<EJBAccessException> {
-    public static final EJBAccessExceptionMapper INSTANCE = new EJBAccessExceptionMapper();
+    public static final EJBAccessExceptionMapper INSTANCE = new EJBAccessExceptionMapper();    
 
     @Override
     public Response toResponse(EJBAccessException exception) {

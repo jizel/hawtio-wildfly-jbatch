@@ -175,20 +175,17 @@ var JBatch = (function (JBatch) {
 
 
 //        Methods consuming the REST resources
-        $http.get("http://localhost:8080/hawtio/jbatch-rest/jobs/names", {
-//            headers: {'Cookie' : document.cookie.split(";")[0]}
-        }).then(function (resp) {
-            $scope.jobs = resp.data;
-        });
+//        $http.get("http://localhost:8080/hawtio/jbatch-rest/jobs/names", {
+//        }).then(function (resp) {
+//            $scope.jobs = resp.data;
+//        });
 
         $scope.getJobCounts = function () {
-            $http.post("http://localhost:8080/hawtio/jbatch-rest/jobs/counts", {
+            $http.get("http://localhost:8080/hawtio/jbatch-rest/jobs/counts", {
 //                withCredentials: true 
             }).then(function (resp) {
                 $scope.jobCounts = resp.data;
-            });
-            
-
+            });            
         };
 
         $scope.getDeployments = function () {
@@ -206,7 +203,7 @@ var JBatch = (function (JBatch) {
         };
 
         $scope.setSelectedInstances = function (jobname) {
-            $http.post("http://localhost:8080/hawtio/jbatch-rest/jobs/inst/" + jobname, {
+            $http.get("http://localhost:8080/hawtio/jbatch-rest/jobs/inst/" + jobname, {
                 withCredentials: true  
             }).then(function (resp) {
                 $scope.selected_instances = resp.data;
@@ -242,7 +239,11 @@ var JBatch = (function (JBatch) {
                 var jsonResp = resp.data;
                 if (jsonResp.outcome.toString() === "failed") {
                     JBatch.log.error("Restarting job with id: " + execId + " failed. Failure description: " + jsonResp['description']);
-                } else {
+                } 
+                if (jsonResp.outcome.toString() === "not-allowed") {
+                     JBatch.log.error(jsonResp.description.toString());                          
+                    }
+                else {
                     $scope.logAndToastSuccess("Job with id: " + execId + " restarted. New id:" + jsonResp.result);
                     $scope.refreshSelectedExecutions();
                 }
@@ -262,7 +263,7 @@ var JBatch = (function (JBatch) {
                         JBatch.log.error("Job " + jobName + " start failed. Failure description: " + jsonResp['failure-description']);                        
                     } 
                     if (jsonResp.outcome.toString() === "not-allowed") {
-                      JBatch.log.error("You are not allowed to do this!");                          
+                      JBatch.log.error(jsonResp.description.toString());                          
                     }
                     else {
 //                    JBatch.log.info("Job started: " + jobName + "with id: " + jsonResp.result);                        
@@ -277,7 +278,11 @@ var JBatch = (function (JBatch) {
                     var jsonResp = resp.data;
                     if (jsonResp.outcome.toString() === "failed") {
                         JBatch.log.error("Job " + jobName + " start failed. Failure description: " + jsonResp['failure-description']);
-                    } else {
+                    } 
+                    if (jsonResp.outcome.toString() === "not-allowed") {
+                      JBatch.log.error(jsonResp.description.toString());                           
+                    }
+                    else {
 //                    JBatch.log.info("Job started: " + jobName + "with id: " + jsonResp.result);                        
                         $scope.logAndToastSuccess("Job started: " + jobName + "with id: " + jsonResp.result);
                         $scope.getJobCounts();
@@ -296,14 +301,19 @@ var JBatch = (function (JBatch) {
             $http.get("http://localhost:8080/hawtio/jbatch-rest/jobs/stop/" + executionId).then(function (resp) {
 //                $scope.executionsWatcher = new String(resp.data);
 //                JBatch.log.info("Stop execution with id: " + executioId + " . Result: " + resp.data);
-                var jsonResp = resp.data;
+                var jsonResp = resp.data;               
                 if (jsonResp['outcome'] == "failed") {
                     if (jsonResp.description.toString().includes("is not running")) {
                         JBatch.log.error("Cannot stop execution that is not running!");
-                    } else {
+                    }                     
+                    else {
                         JBatch.log.error("Stopping job with id: " + executionId + " failed. Failure description: " + jsonResp['description']);
                     }
-                } else {
+                } 
+                 if (jsonResp.outcome.toString() === "not-allowed") {
+                      JBatch.log.error(jsonResp.description.toString());                          
+                    }
+                else {
                     $scope.logAndToastSuccess("Job with id: " + executionId + " stopped.");
                     $scope.refreshSelectedExecutions();
                 }
@@ -318,13 +328,19 @@ var JBatch = (function (JBatch) {
 //                $scope.executionsWatcher = new String(resp.data);
 //                JBatch.log.info("Abandon execution with id: " + executioId + " . Result: " + resp.data);
                 var jsonResp = resp.data;
+               
                 if (jsonResp['outcome'] == "failed") {
                     if (jsonResp.description.toString().includes("running and cannot be abandoned")) {
                         JBatch.log.error("Cannot abandon running execution!");
-                    } else {
+                    }                     
+                    else {
                         JBatch.log.error("Restarting job with id: " + executionId + " failed. Failure description: " + jsonResp['description']);
                     }
-                } else {
+                } 
+                 if (jsonResp.outcome.toString() === "not-allowed") {
+                      JBatch.log.error(jsonResp.description.toString());                          
+                    }
+                else {
                     $scope.logAndToastSuccess("Job with id: " + executionId + " abandoned.");
                     $scope.refreshSelectedExecutions();
                 }

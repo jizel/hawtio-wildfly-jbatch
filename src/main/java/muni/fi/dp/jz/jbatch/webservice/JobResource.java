@@ -123,7 +123,7 @@ public class JobResource {
         }
 	}
     
-    @POST 
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("counts")
     @PermitAll
@@ -139,7 +139,7 @@ public class JobResource {
         }
 	}
     
-    @POST  
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("inst/{jobname}")
     @PermitAll

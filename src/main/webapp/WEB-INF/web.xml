@@ -19,6 +19,7 @@
         <url-pattern>/jbatch-rest/*</url-pattern>         
     </filter-mapping>
     
+    <!--Exception mapper for unauthorized requests-->
     <context-param>
         <param-name>resteasy.providers</param-name>
         <param-value>muni.fi.dp.jz.jbatch.exception.EJBAccessExceptionMapper</param-value>
