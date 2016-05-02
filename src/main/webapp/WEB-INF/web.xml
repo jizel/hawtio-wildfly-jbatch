@@ -61,23 +61,23 @@
         <listener-class>muni.fi.dp.jz.jbatch.hawtio.SessionWatcher</listener-class>
     </listener>
     
-    <security-constraint>
+<!--    <security-constraint>
         <web-resource-collection>
             <web-resource-name>JBatch</web-resource-name>
-            <url-pattern>/rest/cli/start/*</url-pattern>
-            <url-pattern>/rest/jobs/restart/*</url-pattern>
-            <url-pattern>/rest/jobs/stop/*</url-pattern>
-            <url-pattern>/rest/jobs/abandon/*</url-pattern>            
+            <url-pattern>/jbatch-rest/cli/start/*</url-pattern>
+            <url-pattern>/jbatch-rest/jobs/restart/*</url-pattern>
+            <url-pattern>/jbatch-rest/jobs/stop/*</url-pattern>
+            <url-pattern>/jbatch-rest/jobs/abandon/*</url-pattern>            
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
-            <!--Listing all roles here and doing the actual mapping with @RolesAllowed annotations in webservice package-->
+            Listing all roles here and doing the actual mapping with @RolesAllowed annotations in webservice package
             <role-name>admin</role-name>
             <role-name>user</role-name>
             <role-name>supervisor</role-name>
         </auth-constraint>
-    </security-constraint>
+    </security-constraint>-->
         
     <login-config>
         <auth-method>BASIC</auth-method>
@@ -111,8 +111,7 @@
         <env-entry-name>hawtio/role</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <!-- empty == admin,viewer -->
-        <env-entry-value>*</env-entry-value>
-        <!--<env-entry-value>admin,supervisor,user</env-entry-value>-->
+        <env-entry-value>*</env-entry-value>        
     </env-entry>
 
     <env-entry>
@@ -150,32 +149,32 @@
         <env-entry-value></env-entry-value>
     </env-entry>
 
-    <filter>
+<!--    <filter>
         <filter-name>SessionExpiryFilter</filter-name>
         <filter-class>io.hawt.web.SessionExpiryFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>SessionExpiryFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 
-    <filter>
+<!--    <filter>
         <filter-name>CORSFilter</filter-name>
         <filter-class>io.hawt.web.CORSFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>CORSFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 
-    <filter>
+<!--    <filter>
         <filter-name>XFrameOptionsFilter</filter-name>
         <filter-class>io.hawt.web.XFrameOptionsFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>XFrameOptionsFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 
     <filter>
         <filter-name>AuthenticationFilter</filter-name>

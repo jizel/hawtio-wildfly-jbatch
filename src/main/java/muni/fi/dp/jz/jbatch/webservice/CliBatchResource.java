@@ -53,7 +53,7 @@ public class CliBatchResource {
     
     @GET
     @Path("start/{deployment}/{jobName}")
-    @RolesAllowed("admin")    
+    @RolesAllowed("admin")   
     public Response startJobCli(@PathParam("deployment") String deploymentName, @PathParam("jobName") String jobName){
         try {
         String resp = cliService.startJobCli(deploymentName, jobName); 

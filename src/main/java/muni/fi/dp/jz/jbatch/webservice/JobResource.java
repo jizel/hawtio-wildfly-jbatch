@@ -22,7 +22,6 @@ import java.util.Map;
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
-
 import javax.batch.runtime.JobExecution;
 import javax.ejb.EJB;
 import javax.ejb.EJBTransactionRolledbackException;
@@ -61,7 +60,7 @@ public class JobResource {
     @GET    
     @Produces(MediaType.APPLICATION_JSON)
     @Path("submit/{jobname}")
-    @RolesAllowed("admin")
+    @RolesAllowed("admin")   
     public Response submitJob(@PathParam("jobname") String jobName){       
         try{
 		long execId = jobService.submitJob(jobName);

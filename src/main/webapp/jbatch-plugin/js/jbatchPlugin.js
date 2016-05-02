@@ -254,8 +254,7 @@ var JBatch = (function (JBatch) {
             var propertiesStr = new String(properties);
             if (propertiesStr == "undefined" || propertiesStr.length == 0) {
                 $http.get("http://localhost:8080/hawtio/jbatch-rest/cli/start/" + deploymentName + "/" + jobName, {
-                    withCredentials: true  
-//                    headers: {'Auth-Token': document.cookie}                    
+                    withCredentials: true                                    
                 }).then(function (resp) {
                     var jsonResp = resp.data;
 //                    $scope.logAndToastSuccess("token: " + document.cookie);
@@ -274,7 +273,10 @@ var JBatch = (function (JBatch) {
                 
 //                Start Job with properties
             } else {
-                $http.get("http://localhost:8080/hawtio/jbatch-rest/cli/start/" + deploymentName + "/" + jobName + "/" + properties).then(function (resp) {
+                $http.get("http://localhost:8080/hawtio/jbatch-rest/cli/start/" + deploymentName + "/" + jobName + "/" + properties, {
+                    withCredentials: true
+                }                      
+                        ).then(function (resp) {
                     var jsonResp = resp.data;
                     if (jsonResp.outcome.toString() === "failed") {
                         JBatch.log.error("Job " + jobName + " start failed. Failure description: " + jsonResp['failure-description']);

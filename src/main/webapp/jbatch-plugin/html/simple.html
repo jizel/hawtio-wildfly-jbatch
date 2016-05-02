@@ -30,7 +30,7 @@
         <table class="jobs" >
             <thead>
                 <tr>
-                    <th>Job Instance ID</th>    
+                    <th>{{selected_jobname}} instances</th>    
                 </tr>
             </thead>
             <tbody>
@@ -43,7 +43,7 @@
         <table class="jobs" ng-table="executionsTable" ng-model="executionsTable">
             <thead>
                 <tr>
-                    <th>Job Execution ID</th>               
+                    <th>Executions of instance {{selected_instance_id}}</th>               
                     <th>Batch Status</th>
                     <th>Exit Status</th>
                     <th>Parameters</th>
@@ -55,7 +55,7 @@
                     <td>{{execution.jobExecutionId}}</td>
                     <td>{{execution.batchStatus}}</td>
                     <td>{{execution.exitStatus}}</td>
-                    <td>{{execution.jobParameters}}</td>
+                    <td ng-repeat="(name,val) in execution.jobParameters">{{name}}:{{val}}</td>
                     <td>
                         <select ng-name="actionSelect"  ng-model="selectedAction" ng-change="actionCalledOnExec(execution.jobExecutionId, selectedAction)"> 
                             <option ng-option="restart" value="restart" ng-if="selected_executions[selected_executions.length-1].jobExecutionId == execution.jobExecutionId">restart</option>

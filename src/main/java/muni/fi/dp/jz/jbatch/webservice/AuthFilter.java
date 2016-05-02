@@ -47,7 +47,7 @@ public class AuthFilter implements Filter {
 //            LOG.info("Session not null yeeey! " + session.getId());
             Subject subject = (Subject) session.getAttribute("subject");
             if (subject != null) {
-                LOG.info("Session subject: " + subject);
+                LOG.info("Session subject: " + subject);                
                 executeAs(request, response, fc, subject);
                 return;
             }
@@ -62,8 +62,7 @@ public class AuthFilter implements Filter {
 //        LOG.info("Requested sessionId: " + httpRequest.getRequestedSessionId() + httpRequest.getSession(false));
 //        LOG.info("Is Requested sessionId from cookie? :-) : " + httpRequest.isRequestedSessionIdFromCookie());
 //        HttpServletResponse httpResponse = (HttpServletResponse) response;
-//        LOG.info("Respopnse: " + httpResponse.toString());
-//        addCorsHeader(httpResponse);        
+//        LOG.info("Respopnse: " + httpResponse.toString());        
 //        Collection<String> respHeaders= httpResponse.getHeaderNames();
 //        for(String s:respHeaders){            
 //            LOG.info("Response header: " + s + " = " + httpResponse.getHeader(s));
@@ -89,11 +88,6 @@ public class AuthFilter implements Filter {
 //                LOG.info("Cookie: " + cookie.getName());
 //            }
 //        }
-//        if (configuration.getRealm() == null || configuration.getRealm().equals("") || !configuration.isEnabled()) {
-//            LOG.debug("No authentication needed for path {}", path);
-//            chain.doFilter(request, response);
-//            return;
-//        }      
 //        LOG.info("Sessions: " + SessionWatcher.getAllSessions());
 //        HttpSession session = SessionWatcher.find("wqpN5mfAUVwuo1HFMlDw8NPO-bewXmlo357R62sd.jzelezny990");
     }
