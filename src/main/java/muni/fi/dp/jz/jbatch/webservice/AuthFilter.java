@@ -47,7 +47,7 @@ public class AuthFilter implements Filter {
 //            LOG.info("Session not null yeeey! " + session.getId());
             Subject subject = (Subject) session.getAttribute("subject");
             if (subject != null) {
-                LOG.info("Session subject: " + subject);                
+//                LOG.info("Session subject: " + subject);                
                 executeAs(request, response, fc, subject);
                 return;
             }
