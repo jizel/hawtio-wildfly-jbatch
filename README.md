@@ -5,10 +5,10 @@
  - Running instance of Wildfly 10
  - Maven
 
- ### Authentication
+ ### Authentication and user roles
  - Create user(s) in ApplicationRealm on your server (i.e. via add-user.sh/add-user.bat)
  - There are 3 supported roles - admin (all rights), supervisor(cannot start new jobs) and user(read only). Assign one of these roles to your user.
- - SSO needs to be added to standalone.xml (or standalone-full.xml). Add the line ```<single-sign-on/>``` to undertow subsystem config for localhost so it looks like this:
+ - SSO needs to be added to standalone.xml (or standalone-full.xml). Add the line ```<single-sign-on/>``` to the undertow subsystem configuration for localhost so it looks like this:
  
  ```
     <server name="default-server">
