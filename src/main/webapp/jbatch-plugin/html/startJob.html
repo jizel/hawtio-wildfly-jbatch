@@ -40,5 +40,13 @@
         <button ng-click="startJobCli(selected_depl, run_job,properties)">Run Job</button>        
         <p class="row"><b>Be careful</b> - the job name from deployments table does not have to match the xml name of the job which is needed to run it. Check your job xml names!</p>
     </div>
+    
+    <div class="row">    
+        <label for="schedule">Schedule job run for date and time:</label>
+        <input type="datetime-local" id="schedule" name="input" ng-model="datetime"
+            placeholder="yyyy-MM-ddTHH:mm:ss" min="2016-05-01T00:00:00" max="2020-12-31T00:00:00" required />
+        <p class="row">Datetime: {{datetime}}, ,Secs to launch: {{seconds2launch}}, </p>
+        <button ng-click="getSecondsFromDate()">get secs</button>
+    </div>
 
 </div>

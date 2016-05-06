@@ -171,7 +171,8 @@ var JBatch = (function (JBatch) {
         $scope.selectedAction = {};
         $scope.executionsWatcher = new String("");
         $scope.abandonWatcher = new String("");
-        $scope.stopWatcher = new String("");
+        $scope.stopWatcher = new String("");                
+        seconds2launch = 0;
 
 
 //        Methods consuming the REST resources
@@ -384,7 +385,17 @@ var JBatch = (function (JBatch) {
             JBatch.log.info(msg);
             toastr.success(msg);
         };
-
+        $scope.getSecondsFromDate =function(){
+            var launchDate = new Date($scope.datetime);
+            var currDate = new Date();
+            var delay = launchDate.getTime() - currDate.getTime();
+            JBatch.log.error("Launch date: " + launchDate + ", currdate: " + currDate + ", element: " + document.getElementById("schedule").innerHTML); 
+            if(delay>0){
+            $scope.seconds2launch = delay;
+            } else {
+               JBatch.log.error("Time of launch must take place in the future!"); 
+            }
+                    };
 
         //test methods     
 
