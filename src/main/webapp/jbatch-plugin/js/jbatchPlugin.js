@@ -138,8 +138,7 @@ var JBatch = (function (JBatch) {
 
     /**
      * @function JBatchController
-     * @param $scope
-     * @param jolokia
+     * @param $scope     
      * @param $http
      * @param toastr
      *
@@ -151,7 +150,7 @@ var JBatch = (function (JBatch) {
 //        return $resource('/jobs/names'); // Note the full endpoint address
 //    });
 
-    JBatch.BatchJobController = function ($scope, jolokia, $http, toastr) {
+    JBatch.BatchJobController = function ($scope, $http, toastr) {
         $scope.jobs = "";
         $scope.allInstances = "";
         $scope.allInstances2 = "";
